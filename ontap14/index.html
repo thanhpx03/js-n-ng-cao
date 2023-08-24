@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="form" onsubmit="return vailidate() ">
+        <div>
+            tên sinh viên <input type="text" name="" id="name2">
+            <p style="color:red" id="loi_name"></p>
+        </div>
+        <div>
+            email<input type="text" name="" id="email">
+            <p style="color:red" id="loi_email"></p>
+        </div>
+        <div>
+            giới tính <select type="text" name="" id="gioi_tinh">
+                <option id="chon" value="1">chọn</option>
+                    <option id="nu" value="nu">nữ</option>
+                    <option id="nam" value="nam">nam</option>
+                   
+                </select>
+            <p style="color:red" id="loi_gioitinh"></p>
+
+        </div>
+        <div>
+            <button type="submit" onclick="saveAdd()">gửi</button>
+        </div>
+
+    </form>
+
+    <script>
+        function saveAdd() {
+            document.querySelector("#form").addEventListener("submit", function() {
+                function vailidate(){
+                var name=document.querySelector("#name2").value;
+          
+            var ok=true;
+            if(name ==""){
+                document.querySelector("#loi_name").innerHTML="k được bỏ trống tên";
+                ok=false;
+            }else{
+                document.querySelector("#loi_name").innerHTML="";
+            }
+             if(ok){
+            
+                const newUser = {
+                    "name": document.querySelector("#name2").value,
+
+                }
+                fetch(`http://localhost:3000/user`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+
+                    },
+                    body: JSON.stringify(newUser),
+                })
+                return true;
+            }else return false;
+        }
+        })
+    }
+    </script>
+    <script src="main.js" type="module"></script>
+</body>
+
+</html>

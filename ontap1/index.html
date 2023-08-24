@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel-body">
+            <form action="" method="post">
+                <div class="form-control">
+                    <div class="form-group">
+                        <label for="">Product name</label>
+                        <input type="text" name="prouct_name" id="prouct_name1">
+                    </div>
+                </div>
+                <div class="form-control">
+                    <div class="form-group">
+                        <label for="">manu name</label>
+                        <select name="manu_name" id="manu_name1" onchange="changeManu()">
+                            <option value="" >chọn</option>
+                            
+                        </select>
+
+                    </div>
+                </div>
+                <div class="form-control">
+                    <div class="form-group">
+                        <label for="">thể loại</label>
+                        <select name="the_loai" id="the_loai1">
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <div class="form-group">
+                        <label for="">gia</label>
+                        <input type="text" name="gia" id="gia1" onkeyup="update_gia()">
+                    </div>
+                </div>
+                <div class="form-control">
+                    <div class="form-group">
+                        <label for="">tong</label>
+                        <input type="text" name="tong" id="tong1"  onkeyup="update_gia()">
+                    </div>
+                </div>
+                <div class="form-control">
+                    <div class="form-group">
+                        <label for="">ket quả</label>
+                        <input type="text" name="kq" id="kq1">
+                    </div>
+                </div>
+                <div class="">
+                    <button class="btn btn-success" onclick="add_product()">Add</button>
+                    <button class="btn btn-danger" type="reset">reset</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel_body">
+            <table class="table" border="1">
+                <th>No</th>
+                <th>Product name</th>
+                <th>mau name</th>
+                <th>thể loại</th>
+                <th>giá</th>
+                <th>tổng</th>
+                <th>kết quả</th>
+                <th></th>
+                <th></th>
+            </table>
+            <tbody id="result">
+               
+            </tbody>
+        </div>
+
+    </div>
+
+
+
+    <script src="index.js"></script>
+
+
+</body>
+
+</html>

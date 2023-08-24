@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="form-group">
+                <label for="my-input">Name</label>
+                <input id="name" class="form-control" type="text" name="">
+            </div>
+            <div class="form-group">
+                <label for="my-input">Image</label>
+                <input id="image" class="form-control" onchange="previewFile()" type="file" name="">
+                <img src=""  height="100"  alt="Image Preview">
+            </div>
+            <button class="btn btn-primary" onclick="saveAdd()">Create</button>
+        </form>
+    </div>
+    <script src="./main.js" type="module"></script>
+    <script>
+        function previewFile(){ // này là cái check upload ảnh
+            const preview=document.querySelector("img")
+            const file=document.querySelector("#image").files[0];
+            const reader=new FileReader();
+            reader.addEventListener("load",()=>{
+                preview.src=reader.result;
+            },false)
+            if(file){
+                reader.readAsDataURL(file);
+            }
+        }
+        function saveAdd(){
+            document.querySelector("form").addEventListener("submit",()=>{
+                const newStaff={
+                    "name":document.querySelector("#name").value,
+                    "image":document.querySelector("img").getAttribute("src")
+                }
+                fetch(`http://localhost:3000/staff/`,{
+                    method:"POST",
+                    headers:{
+                        "Content-Type": "application/json"
+                    },
+                    body:JSON.stringify(newStaff)
+                })
+            })
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>

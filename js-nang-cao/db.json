@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "dat dep trai"
+    },
+    {
+      "id": 2,
+      "name": "thien nhieu 21"
+    },
+    {
+      "name": "thanh121",
+      "id": 3
+    },
+    {
+      "name": "thanh",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "name": "thanh125"
+    },
+    {
+      "name": "thanh",
+      "id": 6
+    }
+  ]
+}
